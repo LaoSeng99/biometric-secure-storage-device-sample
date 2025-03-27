@@ -1,0 +1,7 @@
+{
+  "name": "BSSD Sample",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

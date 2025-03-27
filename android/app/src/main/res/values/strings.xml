@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">BSSD Sample</string>
+    <string name="title_activity_main">BSSD Sample</string>
+    <string name="package_name">io.bssd.laoseng</string>
+    <string name="custom_url_scheme">io.bssd.laoseng</string>
+</resources>

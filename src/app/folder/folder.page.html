@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Biometric Authentication</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="center-container">
+    <div *ngIf="isAuthroized">
+      <p style="color:red"></p>
+      <p>My Device Id: <strong> {{deviceId}}</strong> </p>
+    </div>
+
+    <div *ngIf="!isAuthroized">
+      <p>Use Biometric to authorized to get device id </p>
+    </div>
+
+    <ion-button (click)="onAuthenticate()">Start Authorized</ion-button>
+  </div>
+</ion-content>
