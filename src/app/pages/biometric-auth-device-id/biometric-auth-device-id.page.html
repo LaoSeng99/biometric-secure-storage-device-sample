@@ -6,6 +6,10 @@
 
 <ion-content>
   <div class="center-container">
+    <div>
+      <p>Current Device Env: <strong> {{deviceEnv}}</strong> </p>
+    </div>
+
     <div *ngIf="isAuthroized">
       <p style="color:red"></p>
       <p>My Device Id: <strong> {{deviceId}}</strong> </p>

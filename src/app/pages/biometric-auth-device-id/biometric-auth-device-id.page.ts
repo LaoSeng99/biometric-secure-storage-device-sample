@@ -1,22 +1,23 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { BiometricAuthService } from '../shared/services/biometric-auth.service';
-import { AlertController } from '@ionic/angular';
+import { Component, OnInit } from '@angular/core';
 import { AndroidBiometryStrength } from '@aparajita/capacitor-biometric-auth';
+import { AlertController } from '@ionic/angular';
+import { AppService } from 'src/app/shared/services/app.service';
+import { BiometricAuthService } from 'src/app/shared/services/biometric-auth.service';
 import {
-  SECURE_STORAGE_KEYS,
   SecureStorageService,
-} from '../shared/services/secure-storage.service';
-import { AppService } from '../shared/services/app.service';
+  SECURE_STORAGE_KEYS,
+} from 'src/app/shared/services/secure-storage.service';
 
 @Component({
-  selector: 'app-folder',
-  templateUrl: './folder.page.html',
-  styleUrls: ['./folder.page.scss'],
+  selector: 'app-biometric-auth-device-id',
+  templateUrl: './biometric-auth-device-id.page.html',
+  styleUrls: ['./biometric-auth-device-id.page.scss'],
   standalone: false,
 })
-export class FolderPage implements OnInit {
+export class BiometricAuthDeviceIdPage implements OnInit {
   isNewDeviceId: boolean = false;
   isAuthroized: boolean = false;
+  deviceEnv: string = 'Uncheck';
 
   deviceId: string = '';
   constructor(
@@ -26,7 +27,10 @@ export class FolderPage implements OnInit {
     private appService: AppService
   ) {}
 
-  async ngOnInit() {}
+  async ngOnInit() {
+    const isSimualtor = await this.appService.isSimulator();
+    this.deviceEnv = isSimualtor ? 'Simulator / Emulator' : 'Real Device';
+  }
 
   async onAuthenticate() {
     var result = await this.biometricAuthService.IsBiometryAvailable();

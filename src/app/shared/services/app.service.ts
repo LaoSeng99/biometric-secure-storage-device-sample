@@ -18,6 +18,15 @@ export class AppService {
   }
 
   /**
+   * 检测设备环境
+   * @returns Promise<boolean> - 如果设备环境是模拟器，返回 true
+   */
+  async isSimulator() {
+    const info = await Device.getInfo();
+    return info.isVirtual;
+  }
+
+  /**
    * 获取设备基本信息
    * @returns Promise<DeviceInfo> - 返回设备的操作系统、平台等信息
    */
